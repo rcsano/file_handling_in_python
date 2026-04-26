@@ -1,13 +1,22 @@
 # Connect and open file
 def write_to_life():
-    my_file = open("mylife.txt", "w") #Writing
+    my_life = open("mylife.txt", "w") #Writing
 
-# Get input and write something
-    line = input("Enter line: ")
-    my_file.write(line + "\n")
+    # While loop
+    while True:
+        # Get input and write something
+        line = input("Enter line: ")
+        my_life.write(line + "\n")
 
-# Close file
-    my_file.close()
+        # Added yes or no question
+        choice = input("Would you like to write another line? (y/n): ")
+
+        # Break loop if no
+        if choice == "n":
+            break
+
+    # Close the file only if the loop if finished
+    my_life.close()
 
 # Execute
 write_to_life()
