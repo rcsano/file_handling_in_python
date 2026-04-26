@@ -1,5 +1,5 @@
 # Open the student's record file
-myFile = open("studentsrecord.txt", "r") # Reading
+myFile = open("students_record.txt", "r") # Reading
 
 # Loop process line and find to maximum GWA
 for line in myFile:
