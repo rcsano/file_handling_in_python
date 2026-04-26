@@ -1,32 +1,36 @@
 # Add class
 class GradeTracker:
     def __init__(self, record_file):
-        # Instance Variables
+        # Instance variables
         self.record_file = record_file
         self.highest_gwa = 5.0
         self.top_student = ""
 
-# Instance Method
+# Instance method and file handling (avoid manual closing of file)
     def find_top_performer(self):
-        students_record = open("students_record.txt", "r") # Reading
-        # Loop process line and find to maximum GWA
-        for line in students_record:
-            # Use split assuming the format 'Name, GWA'
-            name, score = line.strip().split(",")
-            score = float(score)
+        with open(self.record_file, "r") as students_record:
 
-            if score < self.highest_gwa:
-                self.highest_gwa = score
-                self.top_student = name
+            # Loop process to find maximum GWA and exception handling
+            for line in students_record:
+                try:
+                    # Remove whitespace and use split assuming into name and score
+                    name, score = line.strip().split(",")
+                    score = float(score)
+
+                    # Conditional logic
+                    if score < self.highest_gwa:
+                        self.highest_gwa = score
+                        self.top_student = name
+
+                except ValueError:
+                    # Skip invalid lines
+                    continue
 
         # Output the result
         print(f"Student with the highest GWA: {self.top_student}, {self.highest_gwa}")
 
-        # Close the opened file
-        students_record.close()
-
 # Instantiation
 tracker = GradeTracker("students_record.txt")
 
-# Perform Action
+# Perform action
 tracker.find_top_performer()
