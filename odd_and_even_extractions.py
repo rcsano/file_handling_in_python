@@ -7,7 +7,6 @@ odd_file = open("odd.txt", "w") #Writing
 for line in input_file:
     # Remove whitespace and convert into integer
     number = int(line.strip())
-    print(number)
 
     # Inserted conditional logic
     if number % 2 == 0:
