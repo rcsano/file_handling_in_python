@@ -9,6 +9,12 @@ for line in input_file:
     number = int(line.strip())
     print(number)
 
+    # Inserted conditional logic
+    if number % 2 == 0:
+        even_file.write(str(number) + "\n")
+    else:
+        odd_file.write(str(number) + "\n")
+
 # Close all opened files
 input_file.close()
 even_file.close()
