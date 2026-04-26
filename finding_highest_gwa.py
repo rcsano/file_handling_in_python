@@ -1,11 +1,11 @@
 # Open the student's record file
-myFile = open("students_record.txt", "r") # Reading
+students_record = open("students_record.txt", "r") # Reading
 
 highest_student = ""
 highest_gwa = 5.0
 
 # Loop process line and find to maximum GWA
-for line in myFile:
+for line in students_record:
     # Use split assuming the format 'Name, GWA'
     data = line.strip().split(",")
     # Added float for math comparison
@@ -20,4 +20,4 @@ for line in myFile:
 print(f"Student with the highest GWA: {highest_student}, {highest_gwa}")
 
 # Close the opened file
-myFile.close()
+students_record.close()
